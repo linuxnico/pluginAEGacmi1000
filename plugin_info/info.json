@@ -1,0 +1,20 @@
+{
+	"id" : "AEG_acmi1000",
+	"name" : "AEG acmi1000 snmp",
+	"description" : "Plugin de récupération d'info et alarmes snmp des alimentations AEG grâce au module ACMI1000",
+	"licence" : "AGPL",
+	"author" : "linuxnico",
+	"require" : "3.2",
+	"category" : "energy",
+	"hasDependency" : true,
+	"hasOwnDeamon" : false,
+	"maxDependancyInstallTime" : 0,
+	"changelog" : "-",
+	"documentation" : "",
+	"link" : {
+		"forum":"",
+		"video" : ""
+	},
+	"language" : ["fr_FR"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"]
+}
