@@ -9,11 +9,11 @@
 	"hasDependency" : true,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "-",
-	"documentation" : "",
+	"changelog" : "https://linuxnico.github.io/pluginAEGacmi1000/#language#/changelog",
+	"documentation" : "https://linuxnico.github.io/pluginAEGacmi1000/#language#/",
 	"link" : {
-		"forum":"",
-		"video" : ""
+		"forum":"https://linuxnico.github.io/pluginAEGacmi1000/#language#/",
+		"video" : "https://linuxnico.github.io/pluginAEGacmi1000/#language#/"
 	},
 	"language" : ["fr_FR"],
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"]
