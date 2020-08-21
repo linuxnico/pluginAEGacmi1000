@@ -213,6 +213,7 @@ class AEG_acmi1000 extends eqLogic {
   		$puissance->setLogicalId('power');
   		$puissance->setEqLogic_id($this->getId());
   		$puissance->setType('info');
+		$puissance->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$puissance->setSubType('numeric');
       $puissance->setUnite('W');
       $puissance->setOrder(2);
@@ -222,7 +223,7 @@ class AEG_acmi1000 extends eqLogic {
   		$puissance->save();
 
 // creation commande tension Source
-      $tensionSource = $this->getCmd(null, 'tensionSource');
+      $tensionSource= $this->getCmd(null, 'tensionSource');
   		if (!is_object($tensionSource)) {
   			$tensionSource = new AEG_acmi1000Cmd();
   			$tensionSource->setName(__('Tension Source 48V', __FILE__));
@@ -230,6 +231,7 @@ class AEG_acmi1000 extends eqLogic {
   		$tensionSource->setLogicalId('tensionSource');
   		$tensionSource->setEqLogic_id($this->getId());
   		$tensionSource->setType('info');
+		$tensionSource->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$tensionSource->setSubType('numeric');
       $tensionSource->setUnite('V');
       $tensionSource->setOrder(3);
@@ -247,6 +249,7 @@ class AEG_acmi1000 extends eqLogic {
   		$courantSource->setLogicalId('courantSource');
   		$courantSource->setEqLogic_id($this->getId());
   		$courantSource->setType('info');
+		$courantSource->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$courantSource->setSubType('numeric');
       $courantSource->setUnite('A');
       $courantSource->setOrder(4);
@@ -264,6 +267,7 @@ class AEG_acmi1000 extends eqLogic {
   		$tensionCharge->setLogicalId('tensionCharge');
   		$tensionCharge->setEqLogic_id($this->getId());
   		$tensionCharge->setType('info');
+		$tensionCharge->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$tensionCharge->setSubType('numeric');
       $tensionCharge->setUnite('V');
       $tensionCharge->setOrder(5);
@@ -281,6 +285,7 @@ class AEG_acmi1000 extends eqLogic {
   		$courantCharge->setLogicalId('courantCharge');
   		$courantCharge->setEqLogic_id($this->getId());
   		$courantCharge->setType('info');
+		$courantCharge->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$courantCharge->setSubType('numeric');
       $courantCharge->setUnite('A');
       $courantCharge->setOrder(6);
@@ -298,6 +303,7 @@ class AEG_acmi1000 extends eqLogic {
   		$tensionBatterie->setLogicalId('tensionBatterie');
   		$tensionBatterie->setEqLogic_id($this->getId());
   		$tensionBatterie->setType('info');
+		$tensionBatterie->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$tensionBatterie->setSubType('numeric');
       $tensionBatterie->setUnite('V');
       $tensionBatterie->setOrder(7);
@@ -314,6 +320,7 @@ class AEG_acmi1000 extends eqLogic {
   		$courantBatterie->setLogicalId('courantBatterie');
   		$courantBatterie->setEqLogic_id($this->getId());
   		$courantBatterie->setType('info');
+		$courantBatterie->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$courantBatterie->setSubType('numeric');
       $courantBatterie->setUnite('A');
       $courantBatterie->setOrder(8);
@@ -332,6 +339,7 @@ class AEG_acmi1000 extends eqLogic {
   		$tensionSourcePrimaire->setLogicalId('tensionSourcePrimaire');
   		$tensionSourcePrimaire->setEqLogic_id($this->getId());
   		$tensionSourcePrimaire->setType('info');
+		$tensionSourcePrimaire->setTemplate('dashboard','AEG_acmi1000::jauge_couleur');//template pour le dashboard
   		$tensionSourcePrimaire->setSubType('binary');
       $tensionSourcePrimaire->setOrder(9);
       $tensionSourcePrimaire->setIsHistorized(1);

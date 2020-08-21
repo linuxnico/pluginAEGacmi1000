@@ -1,0 +1,131 @@
+<div class="cmd cmd-widget arcgauge #history#" style="color:grey;  height:100%;" data-type="info" data-subtype="numeric" data-template="default" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#" title="{{Date de valeur}} : #valueDate#<br/>{{Date de collecte}} : #collectDate#" >
+<div class="title #hide_name#">
+  <span class="cmdName">#name_display#</span>
+</div>
+<div>
+  <div class="gauge cursor #history#" style="width:100%; height:100% !important; color:grey !important;" data-cmd_id="#id#"></div>
+</div>
+<div class="cmdStats #hide_history#">
+  <span title='{{Min}}' class='tooltips'>#minHistoryValue#</span>|<span title='{{Moyenne}}' class='tooltips'>#averageHistoryValue#</span>|<span title='{{Max}}' class='tooltips'>#maxHistoryValue#</span> <i class="#tendance#"></i>
+</div>
+
+<script>
+  jeedom.cmd.update['#id#'] = function(_options) {
+    $('.cmd[data-cmd_id=#id#]').attr('title','{{Date de valeur}} : '+_options.valueDate+'<br/>{{Date de collecte}} : '+_options.collectDate)
+    $('.cmd[data-cmd_uid=#uid#] .gauge').series[0].points[0].update()
+  }
+
+    var largeur = ('#widget_width#' != '#'+'widget_width#'  ) ? parseInt('#widget_width#') : 150
+    var hauteur = ('#widget_height#' != '#'+'widget_height#') ? parseInt('#widget_height#') : 100
+    var couleur_fond = ('#alertLevel#' == 'danger') ? '#F66' : null
+  if (is_numeric('#state#')) {
+    $('.cmd[data-cmd_uid=#uid#] .gauge').empty().highcharts({
+        chart: {
+        style: {
+          fontFamily: 'Comfortaa'
+        },
+        type: 'solidgauge',
+        plotBackgroundColor: couleur_fond,
+        plotBackgroundImage: null,
+        backgroundColor: null,
+        plotBorderWidth: 0,
+        plotShadow: false,
+        width: largeur ,
+        height: hauteur ,
+        spacingTop: 0,
+        spacingLeft: 0,
+        spacingRight: 0,
+        spacingBottom: 0,
+        borderWidth : 0
+      },
+      
+
+    title: null,
+
+ pane: {
+        center: ['65%', '90%'],
+        size: '140%',
+        startAngle: - 90,
+        endAngle: 20,
+        background: {
+          backgroundColor:'#EEE',
+          innerRadius: '65%',
+          outerRadius: '70%',
+          shape: 'arc',
+          borderWidth: 0
+        }
+      },
+      tooltip: {
+        enabled: false
+      },
+
+
+    exporting: {
+        enabled: false
+    },
+
+    tooltip: {
+        enabled: false
+    },
+
+    // the value axis
+      yAxis: {
+stops: [
+            [0.3, ('#low#' != '#'+"low#") ? '#low#' : 'red'], // nb et couleurs de coupe de l'arc de cercle
+            [0.6, ('#mid#' != '#'+"mid#") ? '#mid#' : 'green'],
+            [1, ('#high#' != '#'+"high#") ? '#high#' : 'red']
+        ],
+        lineWidth: 2,
+        minorTickInterval: null,
+        tickLength: -3,
+        tickPixelInterval: 10,
+        showFirstLabel: true,
+        showLastLabel: true,
+        tickWidth: 2,
+        max: ('#maxValue#' == '') ? 100 : parseInt('#maxValue#'),
+        min: ('#minValue#' == '') ? 0 : parseInt('#minValue#'),
+        title: {
+          text: ''
+        },
+        labels: {
+        distance:10,
+x:-5,
+        }
+      },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                y: -20,
+                borderWidth: 0,
+                useHTML: true
+            }
+        }
+    },
+
+      series: [{
+        name: '',
+        data: [#state#],
+        radius: 92,
+        innerRadius: 72,
+         dataLabels: {
+          y: 15,
+          x: 0,
+          format: 
+          
+                '<div style="text-align:right">' +
+                '<span style="color:grey">{y} </span>' +
+                '<span style="color:grey;opacity:0.4">#unite#' +
+  '</span>'  +
+                '</div>'         
+        },
+      }]
+    })
+  } else {
+    $('.cmd[data-cmd_uid=] .gauge#uid#').append('<center><span class="label label-danger">#state#</span></center>')
+  }
+</script>
+
+</div>
