@@ -20,7 +20,7 @@
     var couleur_fond = ('#alertLevel#' == 'danger') ? '#F66' : null
   if (is_numeric('#state#')) {
     $('.cmd[data-cmd_uid=#uid#] .gauge').empty().highcharts({
-        chart: {
+	chart: {
         style: {
           fontFamily: 'Comfortaa'
         },
@@ -40,11 +40,11 @@
       },
       
 
-    title: null,
+	title: null,
 
- pane: {
-        center: ['65%', '90%'],
-        size: '140%',
+	pane: {
+        center: ['50%', '90%'],
+        size: '100%',
         startAngle: - 90,
         endAngle: 20,
         background: {
@@ -58,69 +58,54 @@
       tooltip: {
         enabled: false
       },
-
-
-    exporting: {
+	exporting: {
         enabled: false
-    },
-
-    tooltip: {
-        enabled: false
-    },
-
-    // the value axis
+	},
+	// the value axis
       yAxis: {
-stops: [
-            [0.3, ('#low#' != '#'+"low#") ? '#low#' : 'red'], // nb et couleurs de coupe de l'arc de cercle
-            [0.6, ('#mid#' != '#'+"mid#") ? '#mid#' : 'green'],
-            [1, ('#high#' != '#'+"high#") ? '#high#' : 'red']
-        ],
-        lineWidth: 2,
-        minorTickInterval: null,
-        tickLength: -3,
-        tickPixelInterval: 10,
-        showFirstLabel: true,
-        showLastLabel: true,
-        tickWidth: 2,
-        max: ('#maxValue#' == '') ? 100 : parseInt('#maxValue#'),
-        min: ('#minValue#' == '') ? 0 : parseInt('#minValue#'),
-        title: {
-          text: ''
-        },
-        labels: {
-        distance:10,
-x:-5,
-        }
+		stops: [
+		    	[0.3, ('#low#' != '#'+"low#") ? '#low#' : 'red'], // nb et couleurs de coupe de l'arc de cercle
+				[0.6, ('#mid#' != '#'+"mid#") ? '#mid#' : 'green'],
+				[1, ('#high#' != '#'+"high#") ? '#high#' : 'red']
+		],
+		lineWidth: 2,
+		minorTickInterval: null,
+		tickLength: -3,
+		tickPixelInterval: 10,
+		showFirstLabel: true,
+		showLastLabel: true,
+		tickWidth: 2,
+		max: ('#maxValue#' == '') ? 100 : parseInt('#maxValue#'),
+		min: ('#minValue#' == '') ? 0 : parseInt('#minValue#'),
+		title: { text: '' },
+		labels: { distance:10, x:-5 }
       },
-    credits: {
-        enabled: false
-    },
+    credits: { enabled: false },
     plotOptions: {
-        solidgauge: {
-            dataLabels: {
-                y: -20,
-                borderWidth: 0,
-                useHTML: true
-            }
-        }
-    },
+		solidgauge: {
+			dataLabels: {
+					y: -15,
+					borderWidth: 0,
+					useHTML: true
+			}
+		}
+	},
 
       series: [{
-        name: '',
-        data: [#state#],
-        radius: 92,
-        innerRadius: 72,
-         dataLabels: {
-          y: 15,
-          x: 0,
-          format: 
-          
-                '<div style="text-align:right">' +
-                '<span style="color:grey">{y} </span>' +
-                '<span style="color:grey;opacity:0.4">#unite#' +
-  '</span>'  +
-                '</div>'         
-        },
+		name: '',
+		data: [#state#],
+		radius: 92,
+		innerRadius: 72,
+		dataLabels: {
+		y: 15,
+		x: 0,
+		format:           
+					'<div style="text-align:right">' +
+					'<span style="color:grey">{y} </span>' +
+					'<span style="color:grey;opacity:0.4">#unite#' +
+					'</span>'  +
+					'</div>'         
+		},
       }]
     })
   } else {
